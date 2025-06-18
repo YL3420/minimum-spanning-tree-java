@@ -1,6 +1,6 @@
 # Instructions for local use
 
----
+
 
 ## GraalVM for JavaScript V8 support
 
@@ -13,7 +13,7 @@ https://www.graalvm.org/
 
 #### Configure JDK in your IDE and set as GraalVM
 
----
+
 
 ## Maven build tool
 
@@ -21,7 +21,7 @@ https://www.graalvm.org/
 #### Reload Maven projects
 #### lifecycle: validate -> compile -> test -> install
 
----
+
 
 ## Execute
 

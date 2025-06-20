@@ -1,6 +1,7 @@
 package github.com.YL3420.mst_learn_.graph;
 
 import github.com.YL3420.mst_learn_.graph.UndirectedGraph.GraphEdge;
+import guru.nidi.graphviz.model.Graph;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
@@ -8,6 +9,7 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import github.com.YL3420.mst_learn_.graph.UndirectedGraph.*;
+import org.junit.jupiter.api.condition.DisabledIfSystemProperties;
 
 abstract class UndirectedGraphTest {
 
@@ -81,6 +83,20 @@ abstract class UndirectedGraphTest {
             for(GraphEdge e : vertex1.outGoingEdges()) {
                 assertEquals(vertex1, e.getOther(e.v2()));
             }
+        }
+
+        @DisplayName("Ensuring that reversing order of the two endpoints doesn't affect"
+                + "inequality of the edges if they share the same two edges and the same length."
+                + "This property pertains to undirected edges")
+        @Test
+        void testReverseVertices(){
+            GraphVertex v1 = new GraphVertex("A");
+            GraphVertex v2 = new GraphVertex("B");
+
+            GraphEdge e1 = new GraphEdge(v1, v2, 3);
+            GraphEdge e2 = new GraphEdge(v2, v1, 3);
+
+            assertEquals(e1, e2);
         }
     }
 
